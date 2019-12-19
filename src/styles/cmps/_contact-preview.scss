@@ -1,0 +1,28 @@
+.contact {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  display: flex;
+  width: 48%;
+  height: 100px;
+  a {
+    text-decoration: none;
+    color: unset;
+    display: flex;
+    img {
+      width: 20%;
+    }
+    .contact-Info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+
+.contact-prev-edit{
+  li{
+    margin: 15px auto
+  }
+}
