@@ -8,7 +8,7 @@ export function NavBar() {
                 <h1>Mr. <span>₿</span></h1>
             </div>
             <div>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
                 <Link to="/contact">Contacts</Link>
                 <Link to="/statistics">Statistics</Link>
             </div>

@@ -3,6 +3,10 @@ import userService from '../services/user.service'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import contactActions from '../stores/contact/contact.actions'
+import userActions from '../stores/user/user.actions'
+import MovesList from '../cmps/Moves-List'
+
+
 
 class ContactDetails extends React.Component {
     state = {
@@ -22,22 +26,32 @@ class ContactDetails extends React.Component {
     }
 
     async componentDidMount() {
+        await this.props.getLoggedInUser()
         const _id = this.props.match.params.id
         await this.props.loadCurrContact(_id)
     }
 
     async transferBTC(ev, contact, amount) {
         ev.preventDefault()
-        const user = await userService.addMove(contact, amount)
+        if (!Number.isInteger(+amount)) return alert('Only numbers please')
+        const user = await userService.addMove(contact, +amount)
         if (!user) return
         alert('successfully transfered the BTC\'s')
         this.props.history.push('/contact')
     }
 
+    contactMoveList = () => {
+        const movesToContact = this.props.loggedInUser.moves.filter(move => {
+            return move.toId === this.props.contact._id
+        })
+        return movesToContact
+    }
+
     render() {
         const { contact } = this.props
+        const { loggedInUser } = this.props
         return (
-            contact &&
+            contact && loggedInUser &&
             <section className="contact-details">
                 <h1>{contact.name}'s details:</h1>
                 <p>Email : {contact.email}</p>
@@ -52,7 +66,10 @@ class ContactDetails extends React.Component {
                     </label>
                     <button>Transfer</button>
                 </form>
-                <img src={`https://robohash.org/${contact._id}/?set=set5`} alt="" />
+                <div className="transfer-img">
+                    <img src={`https://robohash.org/${contact._id}/?set=set5`} alt="" />
+                    {this.contactMoveList().length > 0 && <MovesList moves={this.contactMoveList()} />}
+                </div>
                 <Link to="/contact">← Back to contacts</Link>
             </section>
         )
@@ -61,13 +78,15 @@ class ContactDetails extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        contact: state.contact.currContact
+        contact: state.contact.currContact,
+        loggedInUser: state.user.loggedInUser
     }
 }
 
 const mapDispatchToProps = {
     loadCurrContact: contactActions.loadCurrContact,
     removeContact: contactActions.removeContact,
+    getLoggedInUser: userActions.getLoggedInUser,
 }
 
 export default connect(
