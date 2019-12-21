@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Mr.-Bitcoin/static/css/main.3d2801e6.chunk.css",
+    "main.js": "/Mr.-Bitcoin/static/js/main.53377ef3.chunk.js",
+    "main.js.map": "/Mr.-Bitcoin/static/js/main.53377ef3.chunk.js.map",
+    "runtime-main.js": "/Mr.-Bitcoin/static/js/runtime-main.948cee6d.js",
+    "runtime-main.js.map": "/Mr.-Bitcoin/static/js/runtime-main.948cee6d.js.map",
+    "static/js/2.b02c39b4.chunk.js": "/Mr.-Bitcoin/static/js/2.b02c39b4.chunk.js",
+    "static/js/2.b02c39b4.chunk.js.map": "/Mr.-Bitcoin/static/js/2.b02c39b4.chunk.js.map",
+    "index.html": "/Mr.-Bitcoin/index.html",
+    "precache-manifest.62d1ad179dc9ea98f9211e7e158668d0.js": "/Mr.-Bitcoin/precache-manifest.62d1ad179dc9ea98f9211e7e158668d0.js",
+    "service-worker.js": "/Mr.-Bitcoin/service-worker.js",
+    "static/css/main.3d2801e6.chunk.css.map": "/Mr.-Bitcoin/static/css/main.3d2801e6.chunk.css.map",
+    "static/js/2.b02c39b4.chunk.js.LICENSE": "/Mr.-Bitcoin/static/js/2.b02c39b4.chunk.js.LICENSE",
+    "static/media/bitcoin.png": "/Mr.-Bitcoin/static/media/bitcoin.1826ecc4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.948cee6d.js",
+    "static/js/2.b02c39b4.chunk.js",
+    "static/css/main.3d2801e6.chunk.css",
+    "static/js/main.53377ef3.chunk.js"
+  ]
+}
