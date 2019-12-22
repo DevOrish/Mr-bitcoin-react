@@ -4,7 +4,6 @@ export default class MovesList extends React.Component {
     componentDidMount() {
     }
     render() {
-
         return (
             <ul>
                 {this.props.moves.map(move => {

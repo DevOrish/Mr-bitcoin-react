@@ -20,9 +20,9 @@ class Home extends React.Component {
         const { user } = this.props
         return (
             user && <>
-                <h1>Hello {user.name}</h1>
-                <h4>Coins : {user.coins}</h4>
-                {this.state.rate && <h4>BTC Rate: {this.state.rate}</h4>}
+                <h1>Welcome, {user.name}</h1>
+                <h4>Your coins : {user.coins}</h4>
+                {this.state.rate && <h4>Live BTC Rate: {this.state.rate}</h4>}
                 {user.moves.length > 0 && <MovesList moves={user.moves} />}
                 <Link to="/contact">See Contacts</Link>
             </>

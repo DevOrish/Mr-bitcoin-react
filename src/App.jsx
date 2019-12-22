@@ -1,22 +1,13 @@
 import React from 'react';
 import './styles/App.scss';
-import  Home  from './views/Home'
-import ContactPage from './views/ContactPage'
 import { NavBar } from './cmps/Nav-Bar'
-import ContactDetails from './views/ContactDetails'
-import ContactEdit from './views/ContactEdit'
-import { Route, Switch } from 'react-router-dom'
+import Router from './Router'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/contact" component={ContactPage} />
-        <Route exact path="/contact/edit/:id?" component={ContactEdit} />
-        <Route exact path="/contact/:id" component={ContactDetails} />
-      </Switch>
+        <Router/>
     </div>
   );
 }

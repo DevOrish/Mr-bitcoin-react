@@ -2,6 +2,8 @@ import React from 'react'
 import ContactPreview from '../cmps/Contact-Preview'
 import { connect } from 'react-redux'
 import contactActions from '../stores/contact/contact.actions'
+import utilService from '../services/utils.service'
+
 
 class ContactEdit extends React.Component {
     state = {
@@ -12,9 +14,7 @@ class ContactEdit extends React.Component {
         }
     }
 
-    async componentWillMount() {
-       console.log(this.props);
-        
+    async componentDidMount() {
         const _id = this.props.match.params.id
         if (_id) {
             await this.props.loadCurrContact(_id);
@@ -41,7 +41,8 @@ class ContactEdit extends React.Component {
     saveContact = async (ev) => {
         ev.preventDefault()
         await this.props.saveContact(this.state.contact)
-            this.props.history.push('/contact')
+        utilService.showToast('Contact edited successfully!','success')
+        this.props.history.push('/contact')
     }
 
     render() {
